@@ -8,7 +8,7 @@ def run():
     manager = ConnectionsAPIManager()
     manager.download_connections_data("Nivelles", "Charleroi")
 
-    print(manager.data)
+    [print(c) for c in manager.data]
 
 
 if __name__ == "__main__":
