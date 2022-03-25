@@ -1,3 +1,7 @@
+from datetime import datetime, timedelta
+
+import pytz
+
 from models.connection import Connections
 
 
@@ -26,3 +30,18 @@ class ConnectionsCleaner:
             ) for connection in connections['connection']]
 
         return connections_list
+
+    @staticmethod
+    def remove_timeslot_overrun(connections_list, timeslot):
+        result = []
+        for connection in connections_list:
+
+            connection_time_converted = datetime.fromtimestamp(
+                int(connection.time), tz=pytz.timezone('Europe/Brussels'))
+            connection_time_converted_plus_one_hour = datetime.now(
+                pytz.timezone('Europe/Brussels')) + timedelta(hours=timeslot)
+
+            if connection_time_converted <= connection_time_converted_plus_one_hour:
+                result.append(connection)
+
+        return result
