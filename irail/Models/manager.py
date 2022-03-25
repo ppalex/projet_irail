@@ -1,6 +1,6 @@
-from . import ConnectionsApi
-from . import ConnectionsPayload
-from . import ConnectionsCleaner
+from .api import ConnectionsApi
+from .payload import ConnectionsPayload
+from .cleaner import ConnectionsCleaner
 
 
 class ConnectionsAPIManager:
@@ -27,6 +27,7 @@ class ConnectionsAPIManager:
 
         connections = api.send_request(
             headers, payload.get_payload_formatted())
-        connections_cleaned = ConnectionsCleaner.create_departure_connection(connections)
+        connections_cleaned = ConnectionsCleaner.create_departure_connection(
+            connections)
 
         self.data = connections_cleaned
