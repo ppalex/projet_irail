@@ -31,3 +31,25 @@ class ConnectionsAPIManager:
             connections)
 
         self.data = connections_cleaned
+
+    @staticmethod
+    def get_total_connections(connections_list):
+        return len(connections_list)
+
+    @staticmethod
+    def get_total_connections_canceled(connections_list):
+        return len([connection.canceled == "canceled"
+                    for connection in connections_list])
+
+    @staticmethod
+    def next_hour_train_running(connections_list):
+
+        connections_list = ConnectionsCleaner.remove_timeslot_overrun(
+            connections_list, timeslot=1)
+        total_running_train = ConnectionsAPIManager.get_total_connections(
+            connections_list)
+        total_canceled_train = ConnectionsAPIManager.get_total_connections_canceled(
+            connections_list)
+
+        return ((total_running_train - total_canceled_train) /
+                total_running_train) * 100
