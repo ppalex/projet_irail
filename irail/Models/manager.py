@@ -9,7 +9,7 @@ class ConnectionsAPIManager:
         """
         self.data = None
 
-    def download_connections_data(self, station_from, station_to):
+    def download_connections_data(self, station_from, station_to, time=None):
         """This method download connections from a particular station to
             another station.
              The data are recovered in self.data.
@@ -23,7 +23,7 @@ class ConnectionsAPIManager:
 
         api = ConnectionsApi()
         payload = ConnectionsPayload(
-            station_from=station_from, station_to=station_to)
+            station_from=station_from, station_to=station_to, time=time)
 
         connections = api.send_request(
             headers, payload.get_payload_formatted())
