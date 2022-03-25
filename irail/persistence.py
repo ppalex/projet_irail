@@ -14,4 +14,4 @@ def save_data(result_dict):
         os.path.join(
             RESULT_DIRECTORY,
             f"to_{from_station}_from_{to_station}.json"), "w") as outfile:
-        json.dump(result_dict, outfile)
+        json.dump(result_dict, outfile, indent=4)
