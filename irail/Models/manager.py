@@ -1,6 +1,6 @@
-from models.cleaner import ConnectionsCleaner
-from models.payload import ConnectionsPayload
-from models.api import ConnectionsApi
+from . import ConnectionsApi
+from . import ConnectionsPayload
+from . import ConnectionsCleaner
 
 
 class ConnectionsAPIManager:
