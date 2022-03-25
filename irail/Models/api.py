@@ -3,7 +3,7 @@ import logging
 import configuration.config as config
 import requests
 
-config.load('./configuration/config.yml')
+config.load('irail/configuration/config.yaml')
 
 
 class ConnectionsApi:
@@ -21,7 +21,7 @@ class ConnectionsApi:
         """This method send a request on the connection api end point.
         Args:
             headers (String)
-            payload (dict)
+            payload (String)
         Raises:
             SystemExit: If exception is raised.
         Returns:

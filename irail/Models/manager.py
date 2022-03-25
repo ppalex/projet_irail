@@ -1,5 +1,6 @@
 from models.cleaner import ConnectionsCleaner
 from models.payload import ConnectionsPayload
+from models.api import ConnectionsApi
 
 
 class ConnectionsAPIManager:
@@ -20,12 +21,12 @@ class ConnectionsAPIManager:
 
         headers = {}
 
-        api = ConnectionsAPIManager()
+        api = ConnectionsApi()
         payload = ConnectionsPayload(
             station_from=station_from, station_to=station_to)
 
         connections = api.send_request(
             headers, payload.get_payload_formatted())
-        connections_cleaned = ConnectionsCleaner.create(connections)
+        connections_cleaned = ConnectionsCleaner.create_departure_connection(connections)
 
         self.data = connections_cleaned
