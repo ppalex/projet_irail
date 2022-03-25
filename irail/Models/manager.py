@@ -38,8 +38,8 @@ class ConnectionsAPIManager:
 
     @staticmethod
     def get_total_connections_canceled(connections_list):
-        return len([connection.canceled == "canceled"
-                    for connection in connections_list])
+        return len([connection for connection in connections_list
+                    if connection.canceled == "1"])
 
     @staticmethod
     def next_hour_train_running(connections_list):
@@ -53,3 +53,7 @@ class ConnectionsAPIManager:
 
         return ((total_running_train - total_canceled_train) /
                 total_running_train) * 100
+
+    @staticmethod
+    def next_hour_train_delay(connections_list):
+        pass
