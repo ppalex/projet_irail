@@ -42,6 +42,10 @@ class ConnectionsAPIManager:
                     if connection.canceled == "1"])
 
     @staticmethod
+    def get_total_connections_delay(connections_list):
+        return sum(int(connection.delay) for connection in connections_list)
+
+    @staticmethod
     def next_hour_train_running(connections_list):
 
         connections_list = ConnectionsCleaner.remove_timeslot_overrun(
@@ -56,4 +60,11 @@ class ConnectionsAPIManager:
 
     @staticmethod
     def next_hour_train_delay(connections_list):
-        pass
+        connections_list = ConnectionsCleaner.remove_timeslot_overrun(
+            connections_list, timeslot=1)
+
+        total_running_train = ConnectionsAPIManager.get_total_connections(
+            connections_list)
+
+        return ConnectionsAPIManager.get_total_connections_delay(
+            connections_list) / total_running_train
