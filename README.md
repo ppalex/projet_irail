@@ -38,6 +38,7 @@ Input:
 Output:
 
 * JSON files by destination with the data
+* You can find an example of output file in data directory: from_station_to_station_example.json
 
 
 ## Prerequisite
