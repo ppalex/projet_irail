@@ -10,6 +10,8 @@ config.load('irail/configuration/config.yaml')
 
 def run(from_station, to_station):
     """
+    This function calls components to retrieve data and the three main functionalities,
+    it creates the result, and save the data.
     """
 
     connection_manager = ConnectionsAPIManager()

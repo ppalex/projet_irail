@@ -16,7 +16,7 @@ class ConnectionsCleaner:
         Arguments:
             connection {List} -- Contains the dictionnaries.
         Returns:
-            [List] -- List of Product.
+            [List] -- List of departures between two station.
         """
         connections_list = [
             Connections(**{
@@ -33,6 +33,16 @@ class ConnectionsCleaner:
 
     @staticmethod
     def remove_timeslot_overrun(connections_list, timeslot):
+        """This methodd removes departures between two station, if the departure time is over
+        a certain timeslot.
+
+        Args:
+            connections_list (List): List of departure between two station
+            timeslot (Integer): _description_
+
+        Returns:
+            result (List): List of departures before a timeslot.
+        """
         result = []
         for connection in connections_list:
 

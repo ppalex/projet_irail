@@ -3,6 +3,14 @@ import pytz
 
 
 def get_percent_next_hour_train_running(manager):
+    """_summary_
+
+    Args:
+        manager (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """    
     return manager.next_hour_train_running(manager.data)
 
 
