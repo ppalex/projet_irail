@@ -33,12 +33,12 @@ class ConnectionsCleaner:
 
     @staticmethod
     def remove_timeslot_overrun(connections_list, timeslot):
-        """This methodd removes departures between two station, if the departure time is over
+        """This methodd removes connection object between two station, if the connection object time is over
         a certain timeslot.
 
         Args:
-            connections_list (List): List of departure between two station
-            timeslot (Integer): _description_
+            connections_list (List): List of connection object between two station
+            timeslot (Integer): number of hours
 
         Returns:
             result (List): List of departures before a timeslot.

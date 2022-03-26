@@ -9,7 +9,7 @@ class Connections:
             setattr(self, attr_name, attr_value)
 
     def __str__(self):
-        """This method return an object Product in String format
+        """This method return an object Connections in String format
         """
         string = ""
         attr = vars(self)
