@@ -53,7 +53,7 @@ CONNECTIONS:
 
 ## Launch the app
 
-* Launch the folling command:
+* Launch the following command:
 ```
 python irail
 ```
