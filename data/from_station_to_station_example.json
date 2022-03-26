@@ -1,0 +1,7 @@
+{
+    "from_station": "Nivelles",
+    "to_station": "Charleroi",
+    "next_hour_running": 100.0,
+    "next_hour_train_delay": 0.0,
+    "past_2_hours_canceled": 0
+}
