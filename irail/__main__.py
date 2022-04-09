@@ -1,11 +1,16 @@
 import configuration.config as config
 from models import ConnectionsAPIManager
 from persistence import save_data
+from pathlib import Path
+import os
 from utils import (create_results, get_mean_next_hour_train_delay,
                    get_number_past_2_hour_train_canceled, get_past_2_hour_time,
                    get_percent_next_hour_train_running)
 
-config.load('irail/configuration/config.yaml')
+"""Load the config file"""
+CONFIG_DIRECTORY = Path(__file__).parent / "configuration"
+CONFIG_FILE = "config.yaml"
+config.load(os.path.join(CONFIG_DIRECTORY, CONFIG_FILE))
 
 
 def run(from_station, to_station):
