@@ -1,5 +1,1 @@
-API: 
-  url : "https://api.irail.be/"
-
-CONNECTIONS:
-  1: ["Nivelles", "Charleroi"]
+ENV: "dev"

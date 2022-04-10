@@ -3,7 +3,7 @@ import logging
 import configuration.config as config
 import requests
 
-config.load('irail/configuration/config.yaml')
+config.load()
 
 
 class ConnectionsApi:

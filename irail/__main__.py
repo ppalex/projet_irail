@@ -7,10 +7,8 @@ from utils import (create_results, get_mean_next_hour_train_delay,
                    get_number_past_2_hour_train_canceled, get_past_2_hour_time,
                    get_percent_next_hour_train_running)
 
-"""Load the config file"""
-CONFIG_DIRECTORY = Path(__file__).parent / "configuration"
-CONFIG_FILE = "config.yaml"
-config.load(os.path.join(CONFIG_DIRECTORY, CONFIG_FILE))
+
+config.load()
 
 
 def run(from_station, to_station):
